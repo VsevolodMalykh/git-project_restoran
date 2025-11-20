@@ -30,7 +30,7 @@ function renderCards(data) {
               </a>`;
               card.addEventListener('click', (e) => {
                 console.log(cardData)
-                const cardInfo = new CardInfo(cardData.id);
+                const cardInfo = new CardInfo(cardData);
                 
               })
     container.append(card);

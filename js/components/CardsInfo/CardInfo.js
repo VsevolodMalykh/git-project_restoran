@@ -1,8 +1,8 @@
 import Loader from "../loader/loader.js";
 
 export default class CardInfo {
-  constructor(cardId) {
-    this.cardId = cardId;
+  constructor(card) {
+    this.card = card;
     this.returnCode = document.querySelector(".findProduct").innerHTML;
 
     // this.originalUrl = window.location.href;
@@ -27,10 +27,6 @@ export default class CardInfo {
       const container = document.createElement("div");
       container.classList.add("container");
       container.classList.add("cardInfo");
-      document.documentElement.style.setProperty(
-        "--cardImageUrl",
-        data.imageUrl
-      );
 
       container.innerHTML = await `
       <button class="returnButton"><img src="https://img.icons8.com/?size=100&id=26194&format=png&color=ff9f0d" alt="return button"> <p>RETURN</p></button>

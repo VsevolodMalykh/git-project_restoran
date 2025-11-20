@@ -3,17 +3,17 @@ import { SetupCards } from "./components/setupCards.js";
 import Loader from "./components/loader/loader.js";
 
 export async function render(result) {
-  const loader = new Loader()
+  const loader = new Loader();
   try {
-    loader.showLoader()
-    let params = null;
-    const DATA = await getData(params);
+    loader.showLoader();
+
+    new SetupCards();
+
     
-    new SetupCards(DATA);
-    
+
   } catch (error) {
     console.error("Ошибка: ", error);
-  } finally{
-    loader.hideLoader()
+  } finally {
+    loader.hideLoader();
   }
 }
