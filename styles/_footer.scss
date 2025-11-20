@@ -1,0 +1,229 @@
+@use "./constants" as *;
+@use "./resets" as *;
+@use "./mixins" as *;
+
+.footer {
+  padding-top: 120px;
+  &__heading {
+    padding: 0 75px;
+    @media screen and (max-width: 550px) {
+      padding: 0;
+    }
+    &__first-row {
+      @include flexbox($justify-content: space-between, $flex-wrap: wrap);
+      width: 100%;
+    }
+    &__second-row {
+      @include text();
+      padding-bottom: 61px;
+      border-bottom: $primary-color 1px solid;
+    }
+
+    margin-bottom: 65px;
+  }
+  &__title {
+    @include text($secondary-color, 32px, 700, 40px);
+  }
+  &__subscribe {
+    @include flexbox($justify-content: space-between, $flex-wrap: wrap);
+    max-width: 459px;
+    border-radius: 4px;
+    width: 100%;
+
+    background-color: $primary-color;
+
+    input {
+      font-family: $interFont;
+      background-color: $primary-color;
+      &::placeholder {
+        @include text($secondary-color);
+      }
+      border: none;
+      padding: 16px 20px;
+      border-radius: 4px;
+      @include text();
+      outline: none;
+      font-family: Helvetica;
+    }
+
+    &-btn {
+      @include text($primary-color);
+      border: none;
+      background-color: $secondary-color;
+      font-family: $interFont;
+      padding: 16px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    &__subscribe {
+      width: 190px;
+
+      input {
+        padding: 16px 0;
+      }
+    }
+  }
+
+  // footer-heading end
+
+  // footer-main start -----
+  &__main {
+    @include flexbox($justify-content: space-between, $flex-wrap: wrap);
+    margin-bottom: 50px;
+  }
+
+  &__aboutAndLinks {
+    width: 590px;
+    @include flexbox($justify-content: space-between, $gap: 15px);
+  }
+  &__about {
+    @include flexbox($flex-direction: column);
+    max-width: 312px;
+    width: 100%;
+    &-heading {
+      @include text($secondary-color, 24px, 700, 32px);
+      margin-bottom: 24px;
+    }
+    p {
+      @include text($font-family: $interFont);
+      margin-bottom: 34px;
+    }
+  }
+  &__openHoures {
+    @include flexbox($gap: 16px);
+    h5 {
+      @include text($secondary-color, 18px, 400, 26px, $interFont);
+    }
+
+    &__heading-text {
+      &-time {
+        @include text($secondary-color, 14px, 400, 22px, $interFont);
+      }
+    }
+  }
+  &__clockIcon {
+    width: content;
+  }
+
+  &__helpAndPost {
+    @include flexbox($justify-content: space-between, $gap: 15px);
+    width: 533px;
+  }
+
+  //links start ----
+  &__links-block {
+    @include flexbox($flex-direction: column, $gap: 24px);
+  }
+
+  &__links-heading {
+    @include text($secondary-color, 24px, 700, 32px);
+  }
+
+  &__links {
+    @include flexbox(column, $gap: 24px);
+  }
+
+  &__link {
+    @include text($secondary-color, 20px, 400, 28px, $secondaryFont);
+  }
+
+  // recrent post start
+  &__post {
+    padding-right: 10px;
+    &-heading {
+      @include text($secondary-color, 24px, 700, 32px);
+    }
+    &__cards {
+      @include flexbox(column, $gap: 14px);
+    }
+    &__card {
+      @include flexbox($align-items: center, $gap: 16px);
+
+      &-img {
+        width: content;
+      }
+      &-date {
+        @include text(gray, $font-family: $interFont);
+      }
+      &-slogan {
+        @include text($secondary-color, 18px, 400, 26px);
+      }
+    }
+  }
+  @media screen and (max-width: 1173px) {
+    &__helpAndPost {
+      max-width: 590px;
+      width: 100%;
+    }
+    &__post-heading {
+      text-align: end;
+    }
+    &__post__card-text {
+      @include flexbox($flex-direction: column, $align-items: end);
+    }
+  }
+
+  // footer-copiright start -
+  &__copyright {
+    background-color: $primary-color;
+    &_gray{
+    background-color: $gray2color;
+    }
+    &-content {
+      @include flexbox(
+        $justify-content: space-between,
+        $align-items: center,
+        $flex-wrap: wrap,
+        $gap: 15px
+      );
+      padding: 38px 0;
+    }
+    &-text {
+      @include text($font-family: $interFont);
+    }
+    &-links {
+      @include flexbox($gap: 14px, $align-items: end);
+      padding-right: 14px;
+      height: content;
+    }
+    &-link {
+      background-color: #fff;
+      border-radius: 2px;
+      &1 {
+        padding: 0 13px;
+        padding-top: 8.5px;
+        padding-bottom: 7.5px;
+      }
+      &2 {
+        padding: 0 10px;
+        padding-top: 8.5px;
+        padding-bottom: 7.5px;
+      }
+      &3 {
+        padding: 0 11px;
+        padding-top: 8.5px;
+        padding-bottom: 8px;
+      }
+      &4 {
+        padding: 0 9px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      &5 {
+        padding: 0 10px;
+        padding-top: 8.5px;
+        padding-bottom: 8.5px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1185px) {
+    &__main {
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+}

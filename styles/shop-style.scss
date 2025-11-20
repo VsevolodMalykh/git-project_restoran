@@ -1,0 +1,477 @@
+@use "./constants" as *;
+@use "./resets";
+@use "./mixins" as *;
+@use "./footer" as *;
+@use "./loader/loader" as *;
+@use './lets/cardInfoImage' as *;
+
+.header {
+  &__content {
+    @include flexbox($justify-content: space-between);
+    padding: 29px 0;
+  }
+
+  &__logo {
+    @include text($secondary-color, 24px, 700, 32px);
+    span {
+      color: $primary-color;
+    }
+  }
+
+  &__nav ul {
+    @include flexbox($gap: 32px, $flex-wrap: wrap);
+  }
+  &__menu-item a {
+    @include text();
+  }
+  &__menu-item_active {
+    color: $primary-color;
+  }
+
+  &__icons {
+    @include flexbox($gap: 16px);
+  }
+}
+
+.shop__main {
+  background-color: #fff;
+  padding-bottom: 120px;
+}
+
+.hideContent {
+  display: none;
+}
+
+.cardInfo {
+  &__container {
+    background-color: #fff;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1),
+      0 5px 15px rgba(0, 0, 0, 0.07);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(50, 50, 93, 0.15),
+        0 7px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
+  &__btnClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    font-size: 30px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__img {
+    height: 300px;
+    background-image: url(--cardImageUrl);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+
+    margin-bottom: 14px;
+  }
+  &__heading {
+    padding: 20px 0;
+  }
+  &__textContent {
+    padding-left: 30px;
+  }
+
+  &__cursive {
+    color: $gray2color;
+  }
+
+  &__title {
+    @include text($primary-color, 43px, 700, 43px, $interFont);
+  }
+
+  &__isVegan {
+    margin-top: 20px;
+    @include text($gray2color, 36px, 400, 36px);
+  }
+
+  &__calories{
+    padding-top: 5px;
+    padding-bottom: 20px;
+    @include text($background-color, 2px, 400, 2px, $interFont);
+    span{
+      @include text($primary-color, 30px, 700, 30px, $interFont)
+    }
+  }
+
+  &__price {
+    @include text($primary-color, 60px, 400, 80px, $interFont);
+    width: max-content;
+  }
+
+  &__OldPrice {
+    width: max-content;
+    padding-left: 45px;
+
+    @include text($gray2color, 30px, 400, 30px, $interFont);
+
+    text-decoration: line-through;
+  }
+
+  &__text {
+    margin-top: 20px;
+    color: $grayColor;
+  }
+  
+  &__categories{
+    @include flexbox(column, $gap: 8px);
+    padding: 20px 0;
+
+  }
+
+  &__category{
+    @include text($gray2color, 22px, 400, 26px);
+    &::before {
+      color: $primary-color;
+      content: "✓";
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 10px;
+      width: 16px;
+    }
+  }
+
+  &__btnBuy {
+    @include text($secondary-color, 20px, 700, 0px, $interFont);
+    width: 100%;
+    height: 50px;
+
+    background: rgba($color: $primary-color, $alpha: 0.8);
+    border: none;
+    border-radius: 10px;
+
+    
+
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 40%;
+      z-index: -1;
+      background: rgba($color: $primary-color, $alpha: 1);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    &:hover:after {
+      width: 1300px;
+      height: 300px;
+    }
+
+   &:active {
+  transform: translateY(4px);
+  
+  &::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.4) 0%,
+      transparent 70%
+    );
+    transition: all 0.15s ease;
+  }
+}
+    @keyframes flash {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+  @media screen and (max-width: 340px) {
+    &__textContent {
+      padding-left: 0px;
+    }
+    &__isVegan {
+      @include text($gray2color, 26px, 400, 36px);
+    }
+    &__prices {
+      margin-top: 20px;
+    }
+  }
+}
+
+.hero {
+  @include flexbox(
+    column,
+    $align-items: center,
+    $justify-content: center,
+    $gap: 20px
+  );
+
+  height: 320px;
+
+  background-image: url(../img/shop/hero/back.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &__title {
+    @include text($secondary-color, 48px, 700, 56px);
+  }
+
+  &__nav {
+    @include flexbox($gap: 4px);
+    @include text($secondary-color, 20px, 400, 28px);
+  }
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
+}
+// hero end
+.returnButton{
+  @include flexbox($align-items:center,$gap:10px);
+  border: none;
+  background-color: transparent;
+  img{
+    width: 60px;
+  }
+  p{
+    @include text($primary-color, 30px, 700, 30px, $interFont)
+  }
+  display: flex; 
+}
+// findProduct start ---
+.findProduct {
+  padding: 0 10px;
+  &__content {
+    @include flexbox($gap: 24px);
+  }
+
+  &__heading {
+    @include flexbox($gap: 33px);
+    width: 100%;
+    height: 46px;
+    margin-bottom: 24px;
+    label {
+      @include flexbox($gap: 15px, $align-items: center);
+      p {
+        @include text($grayColor, 20px, 400, 28px, $interFont);
+      }
+      select {
+        width: 236px;
+        height: 46px;
+        border-radius: 6px;
+
+        @include text(#bdbdbd, 18px, 400, 26px, $interFont);
+
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center; /* 12px от правого края */
+        background-size: 20px 20px; /* Размер стрелки */
+
+        option {
+          @include text($grayColor, 20px, 400, 28px, $interFont);
+        }
+      }
+    }
+  }
+}
+
+// menu start
+.menu {
+  @include flexbox($flex-wrap: wrap, $gap: 24px);
+  &__card {
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(50, 50, 93, 0.15);
+    }
+  }
+  &__cardImg {
+    margin-bottom: 8px;
+  }
+  &__cardTitle {
+    @include text($grayColor, 18px, 700, 26px, $interFont);
+    margin-bottom: 4px;
+  }
+  &__cardTitle .regular {
+    font-weight: 400 !important;
+  }
+  &__cardPrice {
+    @include text($primary-color, $font-family: $interFont);
+    display: inline-block;
+  }
+  &__cardOldPrice {
+    @include text($grayOldPrice, $font-family: $interFont);
+    display: inline-block;
+    text-decoration: line-through;
+    margin-left: 8px;
+  }
+}
+
+// filter start -------
+
+.filter {
+  width: 312px;
+  padding: 24px 32px;
+  @include flexbox(column, $gap: 24px);
+  border: 1px solid #f2f2f2;
+}
+
+.search {
+  &__input {
+    padding: 11px 20px;
+    width: 202px;
+    border: none;
+    background-color: rgba($color: $primary-color, $alpha: 0.1);
+    &::placeholder {
+      @include text(#828282, $font-family: $interFont);
+      opacity: 1;
+    }
+  }
+}
+
+// category start ---
+.category {
+  &__title {
+    @include text($grayColor, 20px, 700, 24px);
+  }
+  &__list {
+    @include flexbox(column, $gap: 16px);
+  }
+  &__item {
+    @include flexbox($gap: 8px);
+  }
+  &__label {
+    @include text($grayColor, 18px, 400, 26px);
+  }
+  &__checkbox {
+    accent-color: $primary-color;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+}
+
+// banner start ----
+.filter__banner {
+  background-image: url(../img/shop/filter/perfectTaste.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 29px 23px;
+  width: 100%;
+  height: 286px;
+
+  @include flexbox(column, $justify-content: space-between);
+}
+
+.banner {
+  &__heading {
+    &_litle {
+      @include text($secondary-color, 16px, 700, 24px, $interFont);
+      margin-bottom: 4px;
+    }
+    margin-bottom: 13px;
+    @include text($secondary-color, 20px, 700, 28px, $interFont);
+  }
+  &__price {
+    @include text($primary-color, 16px, 700);
+  }
+
+  &__link {
+    @include flexbox($gap: 8px);
+  }
+}
+
+// filterBy start --------
+.filterBy {
+  &__heading {
+    @include text($grayColor, 0px, 700, 28px);
+    margin-bottom: 16px;
+  }
+  &__slider {
+    margin-bottom: 8px;
+  }
+  &__footer {
+    @include flexbox($justify-content: space-between);
+    p {
+      @include text($gray2color, $font-family: $interFont);
+    }
+  }
+}
+// latestProducts start ----
+.latestProducts {
+  @include flexbox(column, $gap: 24px);
+  &__heading {
+    @include text($grayColor, 20px, 700, 28px);
+  }
+  &__list {
+    @include flexbox(column, $gap: 16px);
+  }
+  &__card {
+    @include flexbox($gap: 15px);
+
+    &-heading {
+      @include text($gray2color);
+      margin-bottom: 4px;
+    }
+    &-rating {
+      @include flexbox($gap: 4px);
+    }
+    &-price {
+      @include text($gray2color, 14px, 400, 22px);
+    }
+  }
+}
+
+.productTags {
+  &__heading {
+    @include text($grayColor, 20px, 700, 28px);
+  }
+  &__links {
+    @include flexbox($flex-wrap: wrap, $gap: 16px);
+  }
+  &__link {
+    @include text($gray2color);
+    border-bottom: 1px solid #f2f2f2;
+    &_active {
+      @include text($primary-color);
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+}

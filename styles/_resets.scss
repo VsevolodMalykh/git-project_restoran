@@ -1,0 +1,56 @@
+@use './constants' as *;
+@use './mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  color: white;
+  font-family: Helvetica;
+}
+
+
+body {
+  background-color: $background-color;
+}
+
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  display: inline-block;
+}
+main {
+  @include flexbox(column, $gap: 120px);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.cursive {
+  @include text($primary-color, 32px, 400, 40px, $secondaryFont);
+  margin-bottom: 8px;
+}
+
+.heading {
+  color: white;
+  span {
+    color: $primary-color;
+  }
+}
+.text {
+  @include text();
+}
+
+.btn {
+  @include button(190px, 60px, $primary-color, none);
+}
+
+.primary{
+  color: $primary-color;
+}

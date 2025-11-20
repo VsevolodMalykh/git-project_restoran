@@ -1,0 +1,1089 @@
+@use "./constants" as *;
+@use "./resets";
+@use "./mixins" as *;
+@use "./footer" as *;
+
+// header start ----------------
+.header {
+  padding-top: 45px;
+  margin: 0;
+
+  &__logo {
+    @include flexbox($justify-content: center);
+    span {
+      font-family: Helvetica;
+      font-weight: 700;
+      font-style: Bold;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0%;
+    }
+  }
+
+  &__text_orange {
+    color: $primary-color;
+  }
+
+  &__burger-btn {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+  &__menu {
+    @include flexbox($justify-content: space-between);
+    &.activeMenu{
+      display: flex;
+    }
+  }
+
+
+  &__nav,
+  &__nav ul {
+    @include flexbox($align-items: center, $gap: 32px, $flex-wrap: wrap);
+  }
+  &__menu-item a {
+    @include text();
+  }
+  &__search {
+    @include flexbox($align-items: center);
+  }
+  &__search-input {
+    @include flexbox($align-items: center, $justify-content: space-between);
+    min-width: 210px;
+    padding: 14px 16px 16px 26px;
+    border: 1px solid transparent;
+    border-color: #ff9f0d;
+    border-radius: 27px;
+    transition: all 0.3s ease;
+    input {
+      background: transparent;
+      color: white;
+      border: 0;
+      
+      &:focus {
+        outline: none;
+      }
+    }
+    
+    img {
+      pointer-events: none;
+    }
+  }
+  
+  &__handbag {
+    margin-left: 8px;
+    // display: none;
+    // width: 24px;
+    // height: 24px;
+  }
+}
+
+
+.header__nav_navAndSearch {
+  @include flexbox($justify-content: space-between);
+}
+
+// header end -------------------
+
+// Art start --------------------
+
+.section-art {
+  padding-bottom: 82px;
+
+  &__content {
+    @include flexbox($gap: 93px);
+  }
+  &__background-img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    filter: brightness(0.1);
+    z-index: -1;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25)),
+      url("../img/section-main/background.png");
+  }
+
+  &__left-zone {
+    @include flexbox($align-items: center, $justify-content: space-between);
+    max-width: 500px;
+  }
+
+  &__heading {
+    font-size: 60px;
+  }
+
+  &__text-block p {
+    @include text();
+    margin: 32px 0;
+  }
+
+  &__lines {
+    margin-right: 50px;
+    margin-left: -60px;
+  }
+
+  &__links {
+    @include flexbox(column, $justify-content: center, $align-items: center);
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 158px;
+      background-color: white;
+    }
+
+    &::before {
+      top: 125px;
+    }
+
+    &::after {
+      bottom: 125px;
+    }
+
+    &__link {
+      display: inline-block;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &__icon {
+      display: block;
+      width: 20px;
+      height: auto;
+      padding: 10px 0;
+    }
+  }
+  &__img {
+    max-width: 880px;
+    width: 100%;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto;
+    }
+    margin-right: -123px;
+
+    @media screen and (max-width: 1600px) {
+      max-width: 780px;
+    }
+    @media screen and (max-width: 1450px) {
+      max-width: 700px;
+    }
+  }
+  @media screen and (max-width: 1450px) and (min-width: 1310px) {
+    &__lines {
+      margin-right: 10px;
+      position: absolute;
+      left: 700px;
+      bottom: 100px;
+      transform: rotate(-90deg);
+    }
+
+    &__links {
+      &__link {
+        transform: rotate(90deg);
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 450px;
+        background-color: white;
+      }
+
+      &::before {
+        top: 145px;
+      }
+
+      &::after {
+        bottom: 145px;
+      }
+    }
+  }
+}
+// art end
+
+// about start ----------------
+
+.about {
+  @include flexbox($justify-content: space-between);
+  z-index: 1;
+  background-color: $background-color;
+  &__content {
+    @include flexbox($justify-content: space-between);
+  }
+  &__info {
+    @include flexbox(column);
+    max-width: 50%;
+  }
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    margin-bottom: 24px;
+  }
+
+  &__advantages {
+    @include flexbox(column, $gap: 24px);
+    padding-bottom: 32px;
+  }
+  &__advantage {
+    @include text($secondary-color, 18px, 400, 26px);
+    &::before {
+      content: "✓";
+      display: inline-block;
+      font-weight: bold;
+      margin-right: 10px;
+      width: 16px;
+    }
+  }
+  &__images {
+    display: grid;
+    width: 660px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto; /* 2 строки */
+    gap: 16px;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  &__big-food {
+    grid-column: 1 / -1; // Занимает все колонки
+  }
+}
+
+// Choose start -------------
+.choose {
+  z-index: 1;
+  background-color: $background-color;
+  &__heading-block {
+    @include flexbox(column, $align-items: center);
+    margin-bottom: 56px;
+  }
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+  }
+
+  &__swiper {
+    @include flexbox($align-items: center, $gap: 32px);
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  &__track {
+    @include flexbox($align-items: center, $gap: 32px);
+    flex-shrink: 0;
+    animation: move 9s linear infinite;
+  }
+
+  &__img {
+    width: 306px;
+    height: 328px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: 0.2ms;
+
+    :hover {
+      width: calc(width + width/2);
+      height: calc(height + height/2);
+    }
+
+    img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @keyframes move {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    &__swiper {
+      gap: 16px;
+    }
+    &__track {
+      gap: 16px;
+    }
+
+    &__img {
+      width: 153px;
+      height: 164px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__swiper {
+      gap: 12px;
+    }
+    &__track {
+      gap: 12px;
+    }
+
+    &__img {
+      width: 120px;
+      height: 128px;
+    }
+
+    // Анимация для мобильных
+    @keyframes move {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-120px - 12px));
+      }
+    }
+  }
+}
+
+// why start
+.why{
+
+  &__content{ 
+    @include flexbox($justify-content: space-between);
+  }
+ 
+  &__imagesZone{
+    max-width: 660px;
+  }
+  &__imagesTop{
+    @include flexbox($align-items: end, $gap: 16px);
+  }
+  &__imagesBottom{
+    
+  }
+
+  
+  &__img2{
+  }
+  &__img3{}
+  &__img4{}
+  &__img5{}
+  &__img6{}
+
+  &__textZone{
+    max-width: 526px;
+  }
+}
+
+// achivments start --------------------------------------------
+
+.achivments {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)),
+    url("../img/achivments/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 110px 0;
+
+  &__content {
+    @include flexbox(
+      $align-items: center,
+      $flex-wrap: wrap,
+      $justify-content: space-evenly,
+      $gap: 50px
+    );
+    min-height: 469px;
+  }
+
+  &__card {
+    @include flexbox(column, $align-items: center, $gap: 24px);
+
+    &__text {
+      @include text($secondary-color, 24px, 700, 32px);
+    }
+    &__count {
+      @include text($secondary-color, 40px, 700, 48px);
+    }
+  }
+}
+
+// menu start --------------------------------------------------
+.menu {
+  &__heading {
+    @include flexbox(column, $align-items: center);
+    margin-bottom: 56px;
+  }
+  &__title {
+    @include text($secondary-color, 48px, 700, 56px);
+    margin-bottom: 56px;
+    @media screen and (max-width: 1025px) {
+      font-size: 34px;
+      line-height: 28px;
+    }
+  }
+  &__nav {
+    align-self: start;
+    @include flexbox($gap: 100px, $flex-wrap: wrap);
+    @media screen and (max-width: 1025px) {
+      gap: 20px;
+    }
+  }
+
+  &__content {
+    @include flexbox($justify-content: space-between);
+    &-img {
+      max-width: 515px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 1025px) {
+      &-img {
+        display: none;
+      }
+      justify-content: center;
+    }
+  }
+
+  &__items {
+    display: grid;
+    padding-right: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    @media screen and (max-width: 1025px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    @media screen and (max-width: 761px) {
+      gap: 10px;
+    }
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+  }
+
+  &__item {
+    @include flexbox($gap: 4px);
+
+    &-text {
+      @include flexbox(column, $justify-content: space-between);
+    }
+
+    &-title {
+      @include text($secondary-color, 20px, 700, 28px, $interFont);
+    }
+
+    &-img {
+      width: 80px;
+      height: 79px;
+      border-radius: 6px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &-price {
+      @include text($primary-color, 18px, 700, 26px, $interFont);
+    }
+    &-description {
+      @include text($secondary-color, 14px, 400, 22px, $interFont);
+    }
+  }
+}
+
+// chef start --------------------------------------------------
+.chef {
+  z-index: 1;
+  background-color: $background-color;
+  &__heading-block {
+    @include flexbox(column, $align-items: center);
+    margin-bottom: 56px;
+  }
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+  }
+
+  &__images {
+    @include flexbox($justify-content: center, $gap: 24px, $flex-wrap: wrap);
+    padding-bottom: 56px;
+  }
+
+  &__btn {
+    @include flexbox($justify-content: center);
+    button {
+      @include button(155px, 50px, $background-color);
+    }
+  }
+}
+// reviews start ------------
+.reviews {
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+    margin-bottom: 123px;
+  }
+
+  &__slider {
+    position: relative;
+    width: 868px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  &__slides {
+    display: flex;
+    transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    flex: 0 0 100%;
+    @include flexbox(
+      column,
+      $align-items: center,
+      $justify-content: en,
+      $gap: 32px
+    );
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+    &-rating {
+      @include flexbox(column, $align-items: center, $gap: 16px);
+
+      &-username {
+        @include text(#333333, 24px, 700, 32px);
+      }
+
+      &-userStatus {
+        color: #828282 !important;
+        padding-bottom: 32px;
+      }
+    }
+
+    &-whoLeft {
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__slide-text {
+    @include text(#4f4f4f, 18px, 400, 26px);
+    text-align: center;
+    margin: 0;
+    max-width: 600px;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 30;
+    @include flexbox($align-items: center, $justify-content: center);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  &__prev {
+    left: 20px;
+  }
+
+  &__next {
+    right: 20px;
+  }
+
+  // Стили для точек (ВНЕ слайдера)
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 56px; // Отступ 56px от слайдера
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $primary-color;
+    opacity: 0.3; // Неактивные точки с прозрачностью 0.3
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+      opacity: 1; // Активная точка без прозрачности
+    }
+
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+  }
+}
+// bean start ---------------
+.bean {
+  background-image: url("../img/weDocumentEveryFood/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 112px 0;
+
+  &__content-place {
+    @include flexbox($justify-content: end);
+  }
+  &__content {
+    @include flexbox(column, $align-items: end);
+    .cursive {
+      @include text($font-size: 32px, $line-height: 40px);
+    }
+  }
+  &__text {
+    text-align: end;
+    margin-bottom: 32px;
+  }
+
+  &__heading {
+    @include text(
+      $color: $secondary-color,
+      $font-size: 48px,
+      $font-weight: 700,
+      $line-height: 56px
+    );
+    text-align: end;
+    margin-bottom: 32px;
+  }
+
+  &__btn {
+    @include flexbox($justify-content: center);
+    button {
+      @include button(190px, 60px, $background-color);
+      transform: translateX(6px);
+    }
+  }
+  &__buttons {
+    @include flexbox($gap: 24px);
+  }
+
+  &__play {
+    @include flexbox(
+      $align-items: center,
+      $justify-content: space-between,
+      $flex-wrap: wrap
+    );
+    width: 145px;
+    p {
+      @include text($secondary-color, 16px, 700);
+    }
+  }
+}
+
+// blog start ---------------
+.blog {
+  &__text {
+    @include flexbox($align-items: center, $flex-direction: column);
+    margin-bottom: 59px;
+  }
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+  }
+  &__cards {
+    @include flexbox($gap: 24px, $flex-wrap: wrap, $justify-content: center);
+    padding-bottom: 100px;
+  }
+  &__card {
+    width: 423px;
+    height: 569px;
+    border-right: #fff 1px solid;
+    border-bottom: #fff 1px solid;
+    &__img {
+      width: 423px;
+      height: 349px;
+    }
+    &__footer {
+      padding: 30px 43px;
+      border-left: #fff 1px solid;
+    }
+    &__date {
+      @include text($primary-color);
+      margin-bottom: 16px;
+    }
+    &__info {
+      @include text($secondary-color, 24px, 700, 32px);
+      margin-bottom: 32px;
+    }
+    &__links {
+      @include flexbox($justify-content: space-between, $align-items: center);
+    }
+    &__learn {
+      @include text($secondary-color);
+      font-family: $interFont;
+    }
+    &__icons {
+      @include flexbox($gap: 8px);
+    }
+  }
+}
+// media start --------------
+
+@media screen and (max-width: 1440px) {
+  .section-art__lines {
+    margin-right: 10px;
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+}
+
+@media screen and (max-width: 1310px) {
+  .header__menu {
+    @include flexbox($justify-content: center);
+    gap: 15px;
+  }
+
+  .section-art {
+    display: flex;
+    .cursive {
+      @include text($primary-color, 27px, 400, 40px, $secondaryFont);
+    }
+
+    &__content {
+      gap: 47px;
+    }
+
+    &__left-zone {
+      max-width: 400px;
+    }
+    &__lines {
+      margin-right: 10px;
+      transform: rotate(0deg);
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 10px;
+      }
+    }
+
+    &__heading {
+      font-size: 40px;
+    }
+
+    &__text-block p {
+      @include text($secondary-color, 14px);
+      margin: 32px 0;
+    }
+    &__img {
+      max-width: 600px;
+    }
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  .section-art {
+    @include flexbox($justify-content: center);
+    .cursive {
+      @include text($primary-color, 24px, 400, 40px, $secondaryFont);
+    }
+    margin-left: -50px;
+    .container {
+      margin: 0 5px;
+    }
+    &__content {
+      justify-content: space-between;
+    }
+
+    &__left-zone {
+      max-width: 250px;
+      position: relative;
+    }
+
+    &__heading {
+      font-size: 30px;
+    }
+
+    &__text-block p {
+      @include text($secondary-color, 12px);
+      margin: 32px 0;
+    }
+
+    &__icon {
+      height: auto;
+    }
+    &__links {
+      &__link {
+        transform: rotate(0deg);
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 150px;
+        background-color: white;
+      }
+
+      &::before {
+        top: 145px;
+      }
+
+      &::after {
+        bottom: 145px;
+      }
+    }
+    &__img {
+      max-width: 400px;
+      img {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .about {
+    &__heading {
+      font-size: 30px;
+    }
+
+    &__text {
+      font-size: 14px;
+    }
+
+    &__advantages {
+      @include flexbox(column, $gap: 20px);
+    }
+    &__advantage {
+      @include text($secondary-color, 16px, 400, 24px);
+      &::before {
+        width: 10px;
+      }
+    }
+    &__images {
+      display: grid;
+      max-width: 330px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px;
+    }
+    &__img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .section-art__links {
+    display: none;
+  }
+
+  .header{
+  &__burger-btn {
+    display: block;
+  }
+  &__menu {
+    flex-wrap: wrap;
+    display: none;
+    margin-bottom: 30px;
+  }
+}
+}
+
+@media screen and (max-width: 741px) {
+  .section-art {
+    margin: 0;
+
+    &__img {
+      display: none;
+    }
+    &__links {
+      display: none;
+    }
+    &__left-zone {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+    .cursive {
+      text-align: center;
+    }
+    &__heading {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    &__text-block {
+      @include flexbox($flex-direction: column, $align-items: center);
+      p {
+        @include text($secondary-color, 14px);
+        margin: 16px 0;
+        text-align: center;
+      }
+    }
+  }
+  .about {
+    &__content {
+      @include flexbox($justify-content: center);
+    }
+    &__info {
+      @include flexbox($justify-content: center);
+      .cursive {
+        text-align: center;
+      }
+    }
+    &__heading {
+      font-size: 40px;
+      text-align: center;
+    }
+
+    &__text {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    &__advantages {
+      @include flexbox(column, $gap: 20px, $align-items: center);
+    }
+    &__advantage {
+      @include text($secondary-color, 16px, 400, 24px);
+      width: max-content;
+      &::before {
+        width: 10px;
+      }
+    }
+    &__images {
+      display: none;
+    }
+    .btn {
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 482px) {
+  .about {
+    &__content {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__info {
+      max-width: 100%;
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    &__heading {
+      @include text($secondary-color, 24px, 700, 32px);
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    &__text {
+      text-align: center;
+      word-wrap: break-word;
+      font-size: 14px;
+    }
+
+    &__advantages {
+      width: 100%;
+    }
+
+    &__advantage {
+      width: 100%;
+      text-align: center;
+      word-wrap: break-word;
+      font-size: 14px;
+    }
+  }
+  .blog {
+  &__text {
+    @include flexbox($align-items: center, $flex-direction: column);
+    margin-bottom: 59px;
+  }
+  &__heading {
+    @include text($secondary-color, 48px, 700, 56px);
+  }
+  &__cards {
+    @include flexbox($gap: 24px, $flex-wrap: wrap, $justify-content: center);
+    padding-bottom: 100px;
+  }
+  &__card {
+    width: 423px;
+    height: fit-content;
+    margin-top: 15px;
+    border-right: 0;
+    border-bottom: 0;
+    &__img {
+      width: 423px;
+      height: fit-content;
+    }
+    &__footer {
+      padding: 0;
+      border: 0;
+    }
+    &__date {
+      margin-bottom: 8px;
+    }
+    &__info {
+      margin-bottom: 12px;
+    }
+    &__links {
+      @include flexbox($flex-wrap: wrap);
+    }
+  }
+}
+}

@@ -1,0 +1,155 @@
+
+
+
+[
+  {
+    "imageUrl": "https://imgbox.com/Z76QbnmQ",
+    "title": "Fresh Lime",
+    "description": "Освежающий натуральный лаймовый напиток с легкой кислинкой и мятными нотками. Идеален для жаркого дня. Содержит натуральный витамин C, который укрепляет иммунитет и улучшает пищеварение.",
+    "price": 38,
+    "oldPrice": 45,
+    "isRegilarWeight": false,
+    "categories": ["drinks"],
+    "id": "1"
+  },
+  {
+    "imageUrl": "https://imgbox.com/IJAHQWNX",
+    "title": "Chocolate Muffin",
+    "description": "Нежный шоколадный маффин с тающей сердцевиной и хрустящей корочкой. Подается теплым. Готовится по особому рецепту с добавлением какао-бобов высшего качества, что делает его менее калорийным, но таким же вкусным.",
+    "price": 28,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["deserts"],
+    "id": "2"
+  },
+  {
+    "imageUrl": "https://imgbox.com/AE9zo9TG",
+    "title": "Burger",
+    "description": "Классический бургер с сочной говяжьей котлетой, свежими овощами и фирменным соусом. Говядина готовится на гриле без масла, что делает блюдо менее жирным, но сохраняет все соки и аромат мяса.",
+    "price": 21,
+    "oldPrice": 45,
+    "isRegilarWeight": false,
+    "categories": ["meat", "fastfood"],
+    "id": "3"
+  },
+  {
+    "imageUrl": "https://imgbox.com/pkGQXPqt",
+    "title": "Country Burger",
+    "description": "Деревенский бургер с домашней котлетой, копченым беконом и соусом барбекю на булочке бриошь. Особенность приготовления - томление мяса при низкой температуре, что делает его особенно нежным и сочным.",
+    "price": 45,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["meat", "fastfood"],
+    "id": "4"
+  },
+  {
+    "imageUrl": "https://imgbox.com/KqGDzyQD",
+    "title": "Drink",
+    "description": "Освежающий безалкогольный напиток с натуральными фруктовыми экстрактами и льдом. Не содержит искусственных красителей и консервантов, только натуральные ингредиенты, полезные для здоровья.",
+    "price": 23,
+    "oldPrice": 45,
+    "isRegilarWeight": false,
+    "categories": ["drinks"],
+    "id": "5"
+  },
+  {
+    "imageUrl": "https://imgbox.com/5OlUmgsf",
+    "title": "Pizza",
+    "description": "Традиционная итальянская пицца с тонким тестом, томатным соусом и расплавленным сыром моцарелла. Тесто готовится на натуральной закваске по старинному рецепту, что делает его легкоусвояемым и полезным для желудка.",
+    "price": 43,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["pizza", "fastfood"],
+    "id": "6"
+  },
+  {
+    "imageUrl": "https://imgbox.com/eo1icKJ8",
+    "title": "Cheese Butter",
+    "description": "Ароматное сливочное масло с добавлением выдержанного сыра и свежей зелени. Идеально для тостов. Содержит натуральные пробиотики, которые улучшают микрофлору кишечника и способствуют пищеварению.",
+    "price": 10,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["uncategorized"],
+    "id": "7"
+  },
+  {
+    "imageUrl": "https://imgbox.com/dcm7fTxc",
+    "title": "Sandwiches",
+    "description": "Свежие сэндвичи с хрустящим хлебом, овощами и выбором начинок на ваш вкус. Хлеб обжаривается на сухой сковороде без масла, что делает его диетическим, но сохраняет хрустящую корочку.",
+    "price": 25,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["fastfood"],
+    "id": "8"
+  },
+  {
+    "imageUrl": "https://imgbox.com/2SNkEpEe",
+    "title": "Chicken Chup",
+    "description": "Хрустящие куриные крылышки в пикантном соусе с нежным мясом внутри. Подаются с дип-соусом. Курица маринуется 24 часа в специальном маринаде, что делает мясо особенно мягким и ароматным.",
+    "price": 12,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["meat", "fastfood"],
+    "id": "9"
+  },
+  {
+    "imageUrl": "https://imgbox.com/pkGQXPqt",
+    "title": "Country Burger",
+    "description": "Сытный деревенский бургер с двойной котлетой, луковыми кольцами и специальным соусом. Готовится из фермерской говядины, выращенной на натуральных кормах без антибиотиков и гормонов роста.",
+    "price": 45,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["meat", "fastfood"],
+    "id": "10"
+  },
+  {
+    "imageUrl": "https://imgbox.com/KqGDzyQD",
+    "title": "Drink",
+    "description": "Легкий газированный напиток с натуральным вкусом тропических фруктов и мятным послевкусием. Содержит экстракт имбиря, который ускоряет метаболизм и помогает пищеварению после плотного приема пищи.",
+    "price": 23,
+    "oldPrice": 45,
+    "isRegilarWeight": false,
+    "categories": ["drinks"],
+    "id": "11"
+  },
+  {
+    "imageUrl": "https://imgbox.com/5OlUmgsf",
+    "title": "Pizza",
+    "description": "Аппетитная пицца с хрустящей корочкой, ароматными томатами и тягучим сыром. Готовится в дровяной печи. Древесный жар придает пицце особый аромат и делает тесто более воздушным и полезным.",
+    "price": 43,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["pizza", "fastfood"],
+    "id": "12"
+  },
+  {
+    "imageUrl": "https://imgbox.com/eo1icKJ8",
+    "title": "Cheese Butter",
+    "description": "Сливочное масло с добавлением пармезана и средиземноморских трав. Прекрасно дополняет хлеб и выпечку. Богато кальцием и витамином D, которые укрепляют кости и улучшают состояние зубов.",
+    "price": 10,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["uncategorized"],
+    "id": "13"
+  },
+  {
+    "imageUrl": "https://imgbox.com/dcm7fTxc",
+    "title": "Sandwiches",
+    "description": "Ароматные сэндвичи на зерновом хлебе с сочными начинками и свежими салатными листьями. Цельнозерновой хлеб содержит клетчатку, которая улучшает работу кишечника и дает длительное чувство сытости.",
+    "price": 25,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["fastfood"],
+    "id": "14"
+  },
+  {
+    "imageUrl": "https://imgbox.com/2SNkEpEe",
+    "title": "Chicken Chup",
+    "description": "Золотистые куриные крылышки в хрустящей панировке с чесночным соусом и зеленью. Панировка готовится из кукурузных хлопьев вместо сухарей, что делает блюдо менее калорийным и более хрустящим.",
+    "price": 12,
+    "oldPrice": 0,
+    "isRegilarWeight": false,
+    "categories": ["meat", "fastfood"],
+    "id": "15"
+  }
+]

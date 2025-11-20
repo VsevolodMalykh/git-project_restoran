@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shop</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    </style>
+    <link rel="stylesheet" href="./styles/shop-style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="header__logo">Food<span>tuck</span></div>
+          <nav class="header__nav">
+            <ul>
+              <li class="header__menu-item">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="header__menu-item"><a href="">Menu</a></li>
+              <li class="header__menu-item"><a href="#">Blog</a></li>
+              <li class="header__menu-item"><a href="#">Pages</a></li>
+              <li class="header__menu-item"><a href="#">About</a></li>
+              <li class="header__menu-item header__menu-item_active">
+                <a href="./shop.html">Shop</a>
+              </li>
+              <li class="header__menu-item"><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+          <ul class="header__icons">
+            <li class="header__icon">
+              <img src="./img/shop/header/MagnifyingGlass.png" alt="search" />
+            </li>
+            <li class="header__icon">
+              <img src="./img/shop/header/User.png" alt="User" />
+            </li>
+            <li class="header__icon">
+              <img src="./img/shop/header/Tote.png" alt="basket" />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main class="main shop__main">
+      <section class="hero">
+        <h1 class="hero__title">Our Shop</h1>
+        <div class="hero__nav">
+          <div class="hero__text">Home</div>
+          <div class="hero__icon">
+            <img src="./img/shop/hero/arrow.png" alt="" />
+          </div>
+          <div class="hero__text primary">Shop</div>
+        </div>
+      </section>
+      <section class="findProduct">
+        <div class="container findProduct__container">
+          <div class="findProduct__heading">
+            <label>
+              <p>Sort By :</p>
+              <select name="sortBy" id="sortBy">
+                <option value="Newest">Newest</option>
+                <option value="toUpperPrice">Цена по возрастанию</option>
+                <option value="toLowerPrice">Цена по убыванию</option>
+              </select>
+            </label>
+            <label>
+              <p>Filter By :</p>
+              <select name="filterBy" id="filterBy">
+                <option value="All">All</option>
+                <option value="Vegeterian">Vegeterian</option>
+              </select>
+            </label>
+          </div>
+          <div class="findProduct__content">
+            <div class="menu" id="menu"></div>
+            <div class="filter">
+              <div class="search">
+                <form>
+                  <input
+                    type="text"
+                    id="search__input"
+                    class="search__input"
+                    placeholder="Search Product"
+                  />
+                  <button type="submit" class="search__btn">
+                    <img src="./img/shop/filter/search.png" alt="search" />
+                  </button>
+                </form>
+              </div>
+              <h4 class="category__title">Category</h4>
+              <div class="category">
+                <ul class="category__list">
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Sandwiches"
+                      id="category__Sandwiches"
+                    />
+                    <label for="category__Sandwiches" class="category__label"
+                      >Sandwiches</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Burger"
+                      id="category__Burger"
+                    />
+                    <label for="category__Burger" class="category__label"
+                      >Burger</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="ChickenChup"
+                      id="category__ChickenChup"
+                    />
+                    <label for="category__ChickenChup" class="category__label"
+                      >Chicken Chup</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Drink"
+                      id="category__Drink"
+                    />
+                    <label for="category__Drink" class="category__label"
+                      >Drink</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Pizza"
+                      id="category__Pizza"
+                    />
+                    <label for="category__Pizza" class="category__label"
+                      >Pizza</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Thi"
+                      id="category__Thi"
+                    />
+                    <label for="category__Thi" class="category__label"
+                      >Thi</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="NonVeg"
+                      id="category__NonVeg"
+                    />
+                    <label for="category__NonVeg" class="category__label"
+                      >Non Veg</label
+                    >
+                  </li>
+                  <li class="category__item">
+                    <input
+                      type="checkbox"
+                      class="category__checkbox"
+                      name="Uncategorized"
+                      id="category__Uncategorized"
+                    />
+                    <label for="category__Uncategorized" class="category__label"
+                      >Uncategorized</label
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="filter__banner">
+                <div class="banner__text">
+                  <h4 class="banner__heading_litle">Perfect Taste</h4>
+                  <p class="banner__heading">Classic Restaurant</p>
+                  <p class="banner__price">45.00$</p>
+                </div>
+                <label class="banner__link"
+                  ><a href="#" class="banner__link-link">Shop Now</a>
+                  <img
+                    src="./img/shop/filter/ArrowCircleRight.png"
+                    alt="Shop Now"
+                /></label>
+              </div>
+
+              <div class="filter__filterBy">
+                <div class="filterBy">
+                  <h4 class="filterBy__heading">Filter By Price</h4>
+                  <div class="filterBy__slider"></div>
+                  <div class="filterBy__footer">
+                    <p>From $0 to $8000</p>
+                    <p>Filter</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="filter__latestProducts">
+                <div class="latestProducts">
+                  <h4 class="latestProducts__heading">Latest Products</h4>
+                  <ul class="latestProducts__list">
+                    <li class="latestProducts__card">
+                      <div class="latestProducts__card-img">
+                        <img
+                          src="./img/shop/filter/latestProduct.png"
+                          alt="product"
+                        />
+                      </div>
+                      <div class="latestProducts__card-text">
+                        <p class="latestProducts__card-heading">Pizza</p>
+                        <div class="latestProducts__card-rating">
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                        </div>
+                        <p class="latestProducts__card-price">$35.00</p>
+                      </div>
+                    </li>
+                    <li class="latestProducts__card">
+                      <div class="latestProducts__card-img">
+                        <img
+                          src="./img/shop/filter/latestProduct.png"
+                          alt="product"
+                        />
+                      </div>
+                      <div class="latestProducts__card-text">
+                        <p class="latestProducts__card-heading">Cupchake</p>
+                        <div class="latestProducts__card-rating">
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                        </div>
+                        <p class="latestProducts__card-price">$35.00</p>
+                      </div>
+                    </li>
+                    <li class="latestProducts__card">
+                      <div class="latestProducts__card-img">
+                        <img
+                          src="./img/shop/filter/latestProduct.png"
+                          alt="product"
+                        />
+                      </div>
+                      <div class="latestProducts__card-text">
+                        <p class="latestProducts__card-heading">Cookies</p>
+                        <div class="latestProducts__card-rating">
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                        </div>
+                        <p class="latestProducts__card-price">$35.00</p>
+                      </div>
+                    </li>
+                    <li class="latestProducts__card">
+                      <div class="latestProducts__card-img">
+                        <img
+                          src="./img/shop/filter/latestProduct.png"
+                          alt="product"
+                        />
+                      </div>
+                      <div class="latestProducts__card-text">
+                        <p class="latestProducts__card-heading">Burger</p>
+                        <div class="latestProducts__card-rating">
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starOrange.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                          <div class="latestProducts__card-rating-img">
+                            <img
+                              src="./img/shop/filter/starWhite.png"
+                              alt="star"
+                            />
+                          </div>
+                        </div>
+                        <p class="latestProducts__card-price">$35.00</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="filter__productTags">
+                <h4 class="productTags__heading">Product Tags</h4>
+                <div class="productTags__links">
+                  <li><a href="#" class="productTags__link">Servies</a></li>
+                  <li><a href="#" class="productTags__link">Our Menu</a></li>
+                  <li><a href="#" class="productTags__link">Pizza</a></li>
+                  <li><a href="#" class="productTags__link">Cupcake</a></li>
+                  <li>
+                    <a
+                      href="#"
+                      class="productTags__link productTags__link_active"
+                      >Burger</a
+                    >
+                  </li>
+                  <li><a href="#" class="productTags__link">Cookies</a></li>
+                  <li><a href="#" class="productTags__link">Our Shop</a></li>
+                  <li>
+                    <a href="#" class="productTags__link">Tandoori Chicken</a>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__heading">
+            <div class="footer__heading__first-row">
+              <h2 class="footer__title heading">
+                <span>St</span>ill You Need Our Support ?
+              </h2>
+              <div class="footer__subscribe">
+                <input type="text" placeholder="Enter Your Email" />
+                <button class="btn footer__subscribe-btn">Subscribe Now</button>
+              </div>
+            </div>
+            <p class="footer__heading__second-row">
+              Don’t wait make a smart & logical quote here. Its pretty easy.
+            </p>
+          </div>
+          <div class="footer__main">
+            <div class="footer__aboutAndLinks">
+              <div class="footer__about">
+                <h4 class="footer__about-heading heading">About Us.</h4>
+                <p>
+                  orporate clients and leisure travelers has been relying on
+                  Groundlink for dependab safe, and professional chauffeured car
+                  service in major cities across World.
+                </p>
+                <div class="footer__openHoures">
+                  <div class="footer__clockIcon">
+                    <img src="./img/footer/Watch.svg" alt="Watch" />
+                  </div>
+                  <div class="footer__openHoures__text">
+                    <h5>Opening Houres</h5>
+                    <p class="footer__openHoures__text-time">
+                      Mon - Sat(8.00 - 6.00)<br />Sunday - Closed
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="footer__links-block">
+                <h4 class="heading footer__links-heading">Useful Links</h4>
+                <ul class="footer__links">
+                  <li class="footer__link"><a href="#">About</a></li>
+                  <li class="footer__link"><a href="#">News</a></li>
+                  <li class="footer__link"><a href="#">Partners</a></li>
+                  <li class="footer__link"><a href="#">Team</a></li>
+                  <li class="footer__link"><a href="#">Menu</a></li>
+                  <li class="footer__link"><a href="#">Contacts</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__helpAndPost">
+              <div class="footer__links-block">
+                <h4 class="heading footer__links-heading">Help?</h4>
+                <ul class="footer__links">
+                  <li class="footer__link"><a href="#">FAQ</a></li>
+                  <li class="footer__link">
+                    <a href="#">Term & conditions</a>
+                  </li>
+                  <li class="footer__link"><a href="#">Reporting</a></li>
+                  <li class="footer__link"><a href="#">Documentation</a></li>
+                  <li class="footer__link"><a href="#">Support Policy</a></li>
+                  <li class="footer__link"><a href="#">Privacy</a></li>
+                </ul>
+              </div>
+              <div class="footer__post">
+                <h4 class="heading footer__post-heading">Recent Post</h4>
+                <div class="footer__post__cards">
+                  <li class="footer__post__card">
+                    <div class="footer__post__card-img">
+                      <img src="./img/footer/Mask Group.png" alt="eat" />
+                    </div>
+                    <div class="footer__post__card-text">
+                      <p class="footer__post__card-date">20 Feb 2022</p>
+                      <p class="footer__post__card-slogan">
+                        Keep Your Business
+                      </p>
+                    </div>
+                  </li>
+                  <li class="footer__post__card">
+                    <div class="footer__post__card-img">
+                      <img src="./img/footer/Mask Group2.png" alt="eat" />
+                    </div>
+                    <div class="footer__post__card-text">
+                      <p class="footer__post__card-date">20 Feb 2022</p>
+                      <p class="footer__post__card-slogan">
+                        Keep Your Business
+                      </p>
+                    </div>
+                  </li>
+                  <li class="footer__post__card">
+                    <div class="footer__post__card-img">
+                      <img src="./img/footer/Mask Group3.png" alt="eat" />
+                    </div>
+                    <div class="footer__post__card-text">
+                      <p class="footer__post__card-date">20 Feb 2022</p>
+                      <p class="footer__post__card-slogan">
+                        Keep Your Business
+                      </p>
+                    </div>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright footer__copyright_gray">
+        <div class="container">
+          <div class="footer__copyright-content">
+            <p class="footer__copyright-text">
+              Copyright © 2022 by Ayeman. All Rights Reserved.
+            </p>
+            <ul class="footer__copyright-links">
+              <li class="footer__copyight-icon">
+                <a
+                  href="#"
+                  class="footer__copyright-link footer__copyright-link1"
+                  ><img src="./img/footer/copyright/facebook.png" alt=""
+                /></a>
+              </li>
+              <li class="footer__copyight-icon">
+                <a
+                  href="#"
+                  class="footer__copyright-link footer__copyright-link2"
+                  ><img src="./img/footer/copyright/twitter.png" alt=""
+                /></a>
+              </li>
+              <li class="footer__copyight-icon">
+                <a
+                  href="#"
+                  class="footer__copyright-link footer__copyright-link3"
+                  ><img src="./img/footer/copyright/inst.png" alt=""
+                /></a>
+              </li>
+              <li class="footer__copyight-icon">
+                <a
+                  href="#"
+                  class="footer__copyright-link footer__copyright-link4"
+                  ><img src="./img/footer/copyright/youtube.png" alt=""
+                /></a>
+              </li>
+              <li class="footer__copyight-icon">
+                <a
+                  href="#"
+                  class="footer__copyright-link footer__copyright-link5"
+                  ><img src="./img/footer/copyright/pinterest.png" alt=""
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/shop.js" type="module"></script>
+  </body>
+</html>
