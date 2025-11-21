@@ -33,12 +33,10 @@ class Pagination {
   }
 
   updateView() {
-    // Убираем активный класс у всех кнопок
     document.querySelectorAll('.pagination__button').forEach(btn => {
       btn.classList.remove('active');
     });
     
-    // Добавляем активный класс текущей странице
     const activeBtn = document.getElementById(`page-${this.currentPage}`);
     if (activeBtn) {
       activeBtn.classList.add('active');
@@ -66,5 +64,4 @@ class Pagination {
   }
 }
 
-// Создаем единственный экземпляр
 export const pagination = new Pagination();

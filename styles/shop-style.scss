@@ -2,7 +2,7 @@
 @use "./resets";
 @use "./mixins" as *;
 @use "./footer" as *;
-@use "./loader/loader" as *;
+@use './loader/loader.scss' as *;
 
 .header {
   &__content {
@@ -351,6 +351,7 @@
     padding: 11px 20px;
     width: 202px;
     border: none;
+    @include text($background-color);
     background-color: rgba($color: $primary-color, $alpha: 0.1);
     &::placeholder {
       @include text(#828282, $font-family: $interFont);

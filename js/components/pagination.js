@@ -1,4 +1,4 @@
-let currentPage = 1;
+import { currentPage } from "../shop.js";
 
 function updateActiveButtons() {
   const buttons = document.querySelectorAll(".pagination__button");
@@ -19,28 +19,27 @@ export function initPagination(onPageChange) {
         return;
       }
 
-      if(button.classList.contains("pagination__button_prev")){
-        currentPage = currentPage > 1 ? currentPage - 1 : 3;
-      } else if (button.classList.contains("pagination__button_next")) {
-        currentPage = currentPage < 3 ? currentPage + 1 : 1;
-      } else if (button.classList.contains("pagination__button_1")){
-        currentPage = 1;
+    //   if(button.classList.contains("pagination__button_prev")){
+    //     currentPage = currentPage > 1 ? currentPage - 1 : 3;
+    //   } else if (button.classList.contains("pagination__button_next")) {
+    //     currentPage = currentPage < 3 ? currentPage + 1 : 1;
+    //   } else 
+        if (button.classList.contains("pagination__button_1")){
+        currentPage.setCurrentPage(1);
       } else if (button.classList.contains("pagination__button_2")){
-        currentPage = 2;
+        currentPage.setCurrentPage(2);
       } else if (button.classList.contains("pagination__button_3")){
-        currentPage = 3;
+        currentPage.setCurrentPage(3);
       }
 
       updateActiveButtons();
-      onPageChange(currentPage);
+      onPageChange(currentPage.getCurrentPage());
     });
   });
   
   updateActiveButtons();
 }
 
-
-
-export function getCurrentPage() {
-  return currentPage;
+export function getFinalCurrentPage(){
+    return currentPage.getCurrentPage()
 }

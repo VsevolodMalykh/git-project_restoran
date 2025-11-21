@@ -1,6 +1,20 @@
 import { render } from "./render.js";
 
-function init() {
-  render();
+class CurrentPage {
+  constructor(){
+    this.currentPage = 1
+  }
+
+  setCurrentPage(value){
+    this.currentPage = value
+  }
+  getCurrentPage(){
+    return this.currentPage
+  }
 }
-document.addEventListener("DOMContentLoaded", init);
+ export const currentPage = new CurrentPage()
+
+function init() {
+  render(currentPage);
+}
+document.addEventListener("DOMContentLoaded", init);  

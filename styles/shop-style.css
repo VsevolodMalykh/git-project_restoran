@@ -774,6 +774,11 @@ main {
   padding: 11px 20px;
   width: 202px;
   border: none;
+  color: #0d0d0d;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: Helvetica;
   background-color: rgba(255, 159, 13, 0.1);
 }
 .search__input::placeholder {

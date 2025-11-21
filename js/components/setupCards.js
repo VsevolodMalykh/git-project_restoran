@@ -1,33 +1,35 @@
 import renderCards from "./renderCards.js";
 import getData from "../get_data.js";
-import { initPagination, getCurrentPage } from "./pagination.js";
+import { initPagination, getFinalCurrentPage } from "./pagination.js";
 
 export class SetupCards {
   constructor() {
     this.sortValue = "Newest";
     this.FilterByVegeterian = false;
     this.categoriesValue = [];
-
-    this.bySortUseCounter = 0;
-    this.byVegeterianUseCounter = 0;
-    this.categoriesValueCounter = 0;
+    this.searchValue = "";
 
     this.init();
   }
 
   init() {
-    initPagination((currentPage) => {
-      console.log(`Страница изменилась на: ${currentPage}`);
-      this.buildCards(); 
-    });
-    
+    // initPagination((currentPage) => {
+    //   console.log(`Страница изменилась на: ${currentPage}`);
+    this.buildCards();
+    // });
+
+    this.sortBy();
+    this.filterByVegeterian();
+    this.filterByCategories();
+    this.filterBySearch();
+    filterByCategories();
   }
-  
+
   sortBy() {
     const sortBy = document.getElementById("sortBy");
     if (!sortBy) return;
 
-    !this.bySortUseCounter && sortBy.addEventListener("change", (e) => {
+    sortBy.addEventListener("change", (e) => {
       this.sortValue = e.target.value;
       this.bySortUseCounter++;
       this.buildCards();
@@ -38,7 +40,7 @@ export class SetupCards {
     const filterByVegeterian = document.getElementById("filterByVegeterian");
     if (!filterByVegeterian) return;
 
-    !this.byVegeterianUseCounter && filterByVegeterian.addEventListener("change", (e) => {
+    filterByVegeterian.addEventListener("change", (e) => {
       if (e.target.value === "Vegeterian") {
         this.FilterByVegeterian = true;
       } else {
@@ -49,16 +51,54 @@ export class SetupCards {
     });
   }
 
-  filterByCategories(){
+  filterByCategories() {
+    const sandwiches = document.getElementById('category__Sandwiches');
+    const burger = document.getElementById('category__Burger');
+    const chickenChup = document.getElementById('category__ChickenChup');
+    const drinks = document.getElementById('category__Drink');
+    const pizza = document.getElementById('category__Pizza');
+    const nonVeg = document.getElementById('category__NonVeg');
+    const uncategorized = document.getElementById('category__Uncategorized');
 
+    sandwiches.addEventListener("change",() => {
+      if(!categoriesValue.includes('sandwiches')){
+
+        this.categoriesValue.push('sandwiches');
+        console.log(this.categoriesValue)
+      }
+    })
+    burger.addEventListener("change",() => {
+      if(!categoriesValue.includes('sandwiches')){
+
+        this.categoriesValue.push('sandwiches');
+        console.log(this.categoriesValue)
+      }
+    })
+    drinks.addEventListener("change",() => {
+      // if(){}
+      this.categoriesValue.push('drinks');
+    })
+    chickenChup.addEventListener("change",() => {
+      // if(){}
+      this.categoriesValue.push('chickenChup');
+    })
+
+
+    this.categoriesValue.join("|");
+    console.log(this.categoriesValue);
+    this.buildCards()
   }
 
-   async buildCards() {
-    let params = [];
+  filterBySearch() {
+    const searchInput = document.getElementById("search__input");
+    searchInput.addEventListener("input", (e) => {
+      this.searchValue = e.target.value;
+      this.buildCards();
+    });
+  }
 
-    this.sortBy();
-    this.filterByVegeterian();
-    this.filterByCategories();
+  async buildCards() {
+    let params = [];
 
     if (this.sortValue === "toUpperPrice") {
       params.push("sortBy=price&order=asc");
@@ -69,11 +109,18 @@ export class SetupCards {
     if (this.FilterByVegeterian) {
       params.push("vegan=true");
     }
+    if (this.searchValue) {
+      params.push(`title=${this.searchValue.trim().toLowerCase()}`);
+    }
 
-    params.push(`page=${getCurrentPage()}`);
-    params.push("limit=6");
+    if(this.categoriesValue) {
+      params.push(`categories=${this.categoriesValue}`)
+    }
 
-    console.log("Загружаем данные для страницы:", getCurrentPage());
+    params.push(`page=${getFinalCurrentPage()}`);
+    params.push("limit=15");
+
+    console.log("Загружаем данные для страницы:", getFinalCurrentPage());
     renderCards(await getData(params.join("&")));
   }
 }
