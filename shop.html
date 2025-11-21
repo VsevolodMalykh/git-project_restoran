@@ -56,7 +56,13 @@
         </div>
       </section>
       <section class="findProduct">
-        <button class="returnButton"><img src="https://img.icons8.com/?size=100&id=26194&format=png&color=ff9f0d" alt="return button"> <p>RETURN</p></button>
+        <button class="returnButton">
+          <img
+            src="https://img.icons8.com/?size=100&id=26194&format=png&color=ff9f0d"
+            alt="return button"
+          />
+          <p>RETURN</p>
+        </button>
         <div class="container cardInfo__container">
           <div class="cardInfo__img"></div>
           <div class="cardInfo__textContent">
@@ -96,14 +102,23 @@
             </label>
             <label>
               <p>Filter By :</p>
-              <select name="filterBy" id="filterBy">
+              <select name="filterByVegeterian" id="filterByVegeterian">
                 <option value="All">All</option>
                 <option value="Vegeterian">Vegeterian</option>
               </select>
             </label>
           </div>
           <div class="findProduct__content">
-            <div class="menu" id="menu"></div>
+            <div class="findProduct__menu-block">
+              <div class="menu" id="menu"></div>
+              <div class="pagination">
+                <button id="prev-btn" class="pagination__button">←</button>
+                <button id="page-1" class="pagination__button">1</button>
+                <button id="page-2" class="pagination__button">2</button>
+                <button id="page-3" class="pagination__button">3</button>
+                <button id="next-btn" class="pagination__button">→</button>
+              </div>
+            </div>
             <div class="filter">
               <div class="search">
                 <form>

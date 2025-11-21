@@ -5,11 +5,10 @@ import Loader from "./components/loader/loader.js";
 export async function render(result) {
   const loader = new Loader();
   try {
-    loader.showLoader();
 
     new SetupCards();
 
-    
+
 
   } catch (error) {
     console.error("Ошибка: ", error);

@@ -1,9 +1,4 @@
 @charset "UTF-8";
-
-:root {
-  --cardImageUrl: "../img/shop/cards/card_image1.png";
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -387,7 +382,6 @@ main {
     transform: rotate(360deg);
   }
 }
-
 .header__content {
   display: flex;
   justify-content: space-between;
@@ -458,15 +452,6 @@ main {
 }
 .cardInfo__btnClose:hover {
   opacity: 1;
-}
-.cardInfo__img {
-  height: 300px;
-  background-image: url(--cardImageUrl);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  margin-bottom: 14px;
 }
 .cardInfo__heading {
   padding: 20px 0;
@@ -674,10 +659,6 @@ main {
 .findProduct {
   padding: 0 10px;
 }
-.findProduct__content {
-  display: flex;
-  gap: 24px;
-}
 .findProduct__heading {
   display: flex;
   gap: 33px;
@@ -720,6 +701,17 @@ main {
   line-height: 28px;
   font-weight: 400;
   font-family: "Inter", sans-serif;
+}
+.findProduct__content {
+  display: flex;
+  gap: 24px;
+  position: relative;
+}
+.findProduct__menu-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
 }
 
 .menu {
@@ -955,4 +947,27 @@ main {
   font-weight: 400;
   font-family: Helvetica;
   border-bottom: 1px solid #ff9f0d;
+}
+
+.pagination {
+  display: flex;
+  gap: 14px;
+}
+.pagination__button {
+  width: 50px;
+  height: 50px;
+  color: #ff9f0d;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  background-color: transparent;
+  border: 2px solid #f2f2f2;
+}
+.pagination__button_active {
+  background-color: #ff9f0d;
+  color: #fff;
+}
+.pagination__button_prev, .pagination__button_next {
+  font-weight: 900;
 }/*# sourceMappingURL=shop-style.css.map */

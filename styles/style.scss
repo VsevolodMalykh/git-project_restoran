@@ -645,12 +645,11 @@
     right: 20px;
   }
 
-  // Стили для точек (ВНЕ слайдера)
   &__dots {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 56px; // Отступ 56px от слайдера
+    margin-top: 56px;
   }
 
   &__dot {
@@ -658,13 +657,13 @@
     height: 12px;
     border-radius: 50%;
     background: $primary-color;
-    opacity: 0.3; // Неактивные точки с прозрачностью 0.3
+    opacity: 0.3;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &.active {
-      opacity: 1; // Активная точка без прозрачности
+      opacity: 1;
     }
 
     &:hover {
