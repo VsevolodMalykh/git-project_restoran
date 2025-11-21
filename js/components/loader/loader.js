@@ -1,27 +1,27 @@
-export default class Loader{
-    isShow = false;
-    constructor(){
+export default class Loader {
+  static loader = null;
+  // constructor(){
+  // }
 
-        this.mask = document.createElement('div');
-        this.init()
-    }
-    
-    init(){
-        this.showLoader()
-    }
+  static showLoader() {
+    if(!this.loader){
 
-    showLoader(){
-        console.log('loader start')
-        this.mask.classList.add("mask");
-        document.querySelector("body").append(this.mask);
-        const loaderCircle = document.createElement('div');
-        loaderCircle.classList.add("loader")
-        this.mask.append(loaderCircle)
+        console.log("loader start");
+        const mask = document.createElement("div");
+        mask.classList.add("mask");
+        console.log(mask)
+        debugger
+        document.body.append(this.mask);
+        const loaderCircle = document.createElement("div");
+        loaderCircle.classList.add("loader");
+        mask.append(loaderCircle);
     }
-    hideLoader(){
-        
-        console.log('loader hide')
-        this.mask.remove()
+  }
+  static hideLoader() {
+    if(!this.loader){
+        console.log("loader hide");
+        document.querySelector(".mask").remove();
 
     }
+  }
 }

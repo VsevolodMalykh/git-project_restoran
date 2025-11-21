@@ -1,6 +1,7 @@
 import renderCards from "./renderCards.js";
 import getData from "../get_data.js";
-import { initPagination, getFinalCurrentPage } from "./pagination.js";
+
+
 
 export class SetupCards {
   constructor() {
@@ -8,21 +9,18 @@ export class SetupCards {
     this.FilterByVegeterian = false;
     this.categoriesValue = [];
     this.searchValue = "";
+    this.currentPage = 1;
 
     this.init();
   }
 
   init() {
-    // initPagination((currentPage) => {
-    //   console.log(`Страница изменилась на: ${currentPage}`);
-    this.buildCards();
-    // });
-
     this.sortBy();
     this.filterByVegeterian();
     this.filterByCategories();
     this.filterBySearch();
-    filterByCategories();
+    this.filterByCategories();
+    this.Pagination();
   }
 
   sortBy() {
@@ -50,6 +48,54 @@ export class SetupCards {
       this.buildCards();
     });
   }
+
+  Pagination(){
+    
+    const prevButton = document.getElementById('prev-btn')
+    const nextButton = document.getElementById('next-btn')
+    const pagButton1 = document.getElementById('page-1')
+    const pagButton2 = document.getElementById('page-2')
+    const pagButton3 = document.getElementById('page-3')
+
+    pagButton1.addEventListener('click', () => {
+      if (this.currentPage !== 1) {
+        this.currentPage = 1
+        this.buildCards();
+      }
+    })
+
+    pagButton2.addEventListener('click', () => {
+      if (this.currentPage !== 2) {
+        this.currentPage = 2;
+        this.buildCards();
+      }
+    })
+
+    pagButton3.addEventListener('click', () => {
+      if (this.currentPage !== 3) {
+        this.currentPage = 3;
+        this.buildCards();
+      }
+    })
+
+    prevButton.addEventListener('click', () => {
+      if (this.currentPage > 1) {
+        this.currentPage -= 1
+        this.buildCards();
+      } else{
+        this.currentPage = 3
+      }
+    })
+
+    nextButton.addEventListener('click', () => {
+      if (this.currentPage < 3) {
+      this.currentPage += 1
+      this.buildCards();
+      } else {
+        this.currentPage = 1
+      }
+    })
+}
 
   filterByCategories() {
     const sandwiches = document.getElementById('category__Sandwiches');
@@ -117,10 +163,9 @@ export class SetupCards {
       params.push(`categories=${this.categoriesValue}`)
     }
 
-    params.push(`page=${getFinalCurrentPage()}`);
+    params.push(`page=${this.currentPage}`);
     params.push("limit=15");
 
-    console.log("Загружаем данные для страницы:", getFinalCurrentPage());
     renderCards(await getData(params.join("&")));
   }
 }

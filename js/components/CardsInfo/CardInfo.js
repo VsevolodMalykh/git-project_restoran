@@ -14,7 +14,7 @@ export default class CardInfo {
   }
 
   async displayCard() {
-    const loader = new Loader();
+    new Loader();
     const searchParams = new URLSearchParams();
     searchParams.append("id", this.cardId);
 
@@ -65,7 +65,7 @@ export default class CardInfo {
     } catch {
       console.error(error);
     } finally {
-      loader.hideLoader();
+      Loader.hideLoader();
     }
   }
 }

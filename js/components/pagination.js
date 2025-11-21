@@ -19,11 +19,11 @@ export function initPagination(onPageChange) {
         return;
       }
 
-    //   if(button.classList.contains("pagination__button_prev")){
-    //     currentPage = currentPage > 1 ? currentPage - 1 : 3;
-    //   } else if (button.classList.contains("pagination__button_next")) {
-    //     currentPage = currentPage < 3 ? currentPage + 1 : 1;
-    //   } else 
+      if(button.classList.contains("pagination__button_prev")){
+        currentPage = currentPage > 1 ? currentPage - 1 : 3;
+      } else if (button.classList.contains("pagination__button_next")) {
+        currentPage = currentPage < 3 ? currentPage + 1 : 1;
+      } else 
         if (button.classList.contains("pagination__button_1")){
         currentPage.setCurrentPage(1);
       } else if (button.classList.contains("pagination__button_2")){
