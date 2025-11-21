@@ -2,7 +2,7 @@
 @use "./resets";
 @use "./mixins" as *;
 @use "./footer" as *;
-@use './loader/loader.scss' as *;
+@use "./loader/loader.scss" as *;
 
 .header {
   &__content {
@@ -42,6 +42,62 @@
 }
 
 .cardInfo {
+  &__slider {
+      position: relative;
+      width: 868px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    &__slides {
+      display: flex;
+      transition: transform 0.4s ease;
+      width: 100%;
+      height: 100%;
+    }
+    &__slide {
+      @include flexbox(
+        column,
+        $align-items: center,
+        $justify-content: en,
+        $gap: 32px
+      );
+      flex: 0 0 100%;
+
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+&__dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 56px;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: $primary-color;
+    opacity: 0.3;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+      opacity: 1;
+    }
+
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+  }
+
   &__container {
     background-color: #fff;
     position: relative;
@@ -76,7 +132,7 @@
     }
   }
   // &__img {
-   
+
   // }
   &__heading {
     padding: 20px 0;
@@ -315,9 +371,7 @@
       box-shadow: 0 20px 45px rgba(50, 50, 93, 0.15);
     }
   }
-  &__cardImg {
-    margin-bottom: 8px;
-  }
+
   &__cardTitle {
     @include text($grayColor, 18px, 700, 26px, $interFont);
     margin-bottom: 4px;
@@ -335,6 +389,8 @@
     text-decoration: line-through;
     margin-left: 8px;
   }
+
+ 
 }
 
 // filter start -------
@@ -473,20 +529,21 @@
 
 // filter end
 
-.pagination{
-  @include flexbox($gap:14px);
-  &__button{
+.pagination {
+  @include flexbox($gap: 14px);
+  &__button {
     width: 50px;
     height: 50px;
     @include text($primary-color, $font-family: $interFont);
-    
+
     background-color: transparent;
     border: 2px solid #f2f2f2;
-    &_active{
+    &_active {
       background-color: $primary-color;
       color: $secondary-color;
     }
-    &_prev, &_next{
+    &_prev,
+    &_next {
       font-weight: 900;
     }
   }

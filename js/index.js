@@ -3,7 +3,7 @@ import { BurgerMenu } from "./components/burger-menu.js";
 
 function init() {
   new BurgerMenu();
-  new Slider();
+  new Slider('reviews');
 
 }
 document.addEventListener("DOMContentLoaded", init);

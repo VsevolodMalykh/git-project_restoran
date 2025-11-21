@@ -1,5 +1,9 @@
+import Loader from "./components/loader/loader.js";
+
 async function getData(params) {
   try {
+    Loader.showLoader()
+
     if (!params) {
       params = "";
     }
@@ -17,6 +21,9 @@ async function getData(params) {
   } catch (error) {
     console.error("Ошибка загрузки:", error);
     return [];
+  }
+  finally{
+    Loader.hideLoader()
   }
 }
 export default getData;

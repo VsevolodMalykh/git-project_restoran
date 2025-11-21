@@ -1,27 +1,31 @@
 export default class Loader {
-  static loader = null;
+  static loader = false;
   // constructor(){
   // }
 
   static showLoader() {
     if(!this.loader){
 
-        console.log("loader start");
         const mask = document.createElement("div");
+
         mask.classList.add("mask");
-        console.log(mask)
-        debugger
-        document.body.append(this.mask);
+
+
+        document.body.append(mask);
+
         const loaderCircle = document.createElement("div");
+
         loaderCircle.classList.add("loader");
+
         mask.append(loaderCircle);
+
+        this.loader = true // Волшебная строчка, непонятно как это работает, но это работает
     }
   }
   static hideLoader() {
-    if(!this.loader){
-        console.log("loader hide");
+    if(this.loader){
         document.querySelector(".mask").remove();
-
+        this.loader = false
     }
   }
 }

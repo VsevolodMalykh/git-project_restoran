@@ -110,14 +110,14 @@ export class SetupCards {
       if(!categoriesValue.includes('sandwiches')){
 
         this.categoriesValue.push('sandwiches');
-        console.log(this.categoriesValue)
+        // console.log(this.categoriesValue)
       }
     })
     burger.addEventListener("change",() => {
       if(!categoriesValue.includes('sandwiches')){
 
         this.categoriesValue.push('sandwiches');
-        console.log(this.categoriesValue)
+        // console.log(this.categoriesValue)
       }
     })
     drinks.addEventListener("change",() => {
@@ -131,7 +131,7 @@ export class SetupCards {
 
 
     this.categoriesValue.join("|");
-    console.log(this.categoriesValue);
+    // console.log(this.categoriesValue);
     this.buildCards()
   }
 
@@ -165,7 +165,7 @@ export class SetupCards {
 
     params.push(`page=${this.currentPage}`);
     params.push("limit=15");
-
+    
     renderCards(await getData(params.join("&")));
   }
-}
+} 

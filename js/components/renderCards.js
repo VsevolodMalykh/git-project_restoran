@@ -1,5 +1,6 @@
 import CardInfo from "./CardsInfo/CardInfo.js";
 
+
 function renderCards(data) {
 
   const container = document.getElementById("menu");
@@ -30,7 +31,10 @@ function renderCards(data) {
               </a>`;
               card.addEventListener('click', (e) => {
                 console.log(cardData)
+                window.location.pathname += `?id=${cardData.id}`
+                // fetch(`https://6906fed5b1879c890ed88432.mockapi.io/cardsInfo?id=${cardData.id}`)
                 const cardInfo = new CardInfo(cardData);
+
                 
               })
     container.append(card);

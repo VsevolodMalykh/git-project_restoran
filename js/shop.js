@@ -1,3 +1,4 @@
+import { Slider } from "./components/slider.js";
 import { render } from "./render.js";
 
 class CurrentPage {
@@ -16,5 +17,6 @@ class CurrentPage {
 
 function init() {
   render(currentPage);
+    new Slider('cardInfo');
 }
 document.addEventListener("DOMContentLoaded", init);  

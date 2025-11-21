@@ -7,7 +7,6 @@ let setupInstanse = null;
 
 export async function render() {
   try {
-    Loader.showLoader()
 
     if(!setupInstanse){
     setupInstanse = new SetupCards();
@@ -16,7 +15,5 @@ export async function render() {
 
   } catch (error) {
     console.error("Ошибка: ", error);
-  } finally {
-    Loader.hideLoader();
   }
 }
